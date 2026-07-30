@@ -1,0 +1,202 @@
+:root {
+  --bg: #f4f6f9;
+  --card-bg: #ffffff;
+  --border: #e0e4ea;
+  --text: #1f2430;
+  --muted: #6b7280;
+  --accent: #3b6fe0;
+  --accent-hover: #2f5ac2;
+  --error: #d64545;
+  --cold: #4a90d9;
+  --warm: #e08a2e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 24px;
+}
+h1 { font-size: 22px; margin-bottom: 4px; }
+p.subtitle { color: var(--muted); margin-top: 0; margin-bottom: 20px; font-size: 14px; }
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) 1fr;
+  gap: 24px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+}
+
+form.card, .leads-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+.field input[type="text"],
+.field input[type="tel"],
+.field select {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fff;
+  color: var(--text);
+}
+.field input:focus, .field select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.field.invalid input { border-color: var(--error); }
+.error-text {
+  color: var(--error);
+  font-size: 12px;
+  margin-top: 4px;
+  display: none;
+}
+.field.invalid .error-text { display: block; }
+
+.switch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.switch-row label { font-size: 13px; font-weight: 600; }
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #ccc;
+  border-radius: 24px;
+  transition: .2s;
+}
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 18px; width: 18px;
+  left: 3px; bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: .2s;
+}
+.switch input:checked + .slider { background: var(--accent); }
+.switch input:checked + .slider::before { transform: translateX(18px); }
+
+button.save-btn {
+  width: 100%;
+  padding: 11px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+button.save-btn:hover { background: var(--accent-hover); }
+
+#formMsg { font-size: 13px; margin-top: 10px; min-height: 18px; }
+#formMsg.error { color: var(--error); }
+#formMsg.success { color: #1a8a4a; }
+
+.leads-panel h2 { font-size: 16px; margin-top: 0; }
+.empty-hint { color: var(--muted); font-size: 13px; }
+
+.lead-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 16px;
+  align-items: center;
+}
+.lead-card .lead-name { font-weight: 700; font-size: 14px; }
+.lead-card .lead-phone { color: var(--muted); font-size: 13px; }
+.lead-meta {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+.badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: #eef1f6;
+  color: var(--text);
+  white-space: nowrap;
+}
+.badge.source-cold { background: #e6f0fb; color: var(--cold); }
+.badge.source-warm { background: #fdf0e2; color: var(--warm); }
+.badge.tz { background: #e9f9ee; color: #1a8a4a; }
+
+.stage-select {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+.stage-select label { font-size: 12px; color: var(--muted); }
+.stage-select select {
+  font-size: 12px;
+  padding: 4px 6px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+}
+
+.lead-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+.del-btn {
+  background: none;
+  border: none;
+  color: var(--error);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.api-demo {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border);
+}
+.api-demo summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.api-demo pre {
+  background: #1e2330;
+  color: #d6e2ff;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  overflow-x: auto;
+  margin-top: 8px;
+}

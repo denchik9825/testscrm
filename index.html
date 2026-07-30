@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM — Добавление лида</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ИНТЕРФЕЙС: форма добавления лида + блок со списком сохранённых лидов -->
+<h1>Добавление лида в CRM</h1>
+<p class="subtitle">Тестовая страница: форма → валидация → localStorage → список лидов</p>
+
+<div class="layout">
+
+  <form class="card" id="leadForm" novalidate>
+    <div class="field" id="fieldName">
+      <label for="name">Имя клиента *</label>
+      <input type="text" id="name" placeholder="Например, Иван Петров">
+      <div class="error-text">Заполните имя клиента</div>
+    </div>
+
+    <div class="field" id="fieldPhone">
+      <label for="phone">Номер телефона *</label>
+      <input type="tel" id="phone" placeholder="+7 900 000-00-00">
+      <div class="error-text">Заполните номер телефона</div>
+    </div>
+
+    <div class="field">
+      <label for="source">Источник лида</label>
+      <select id="source">
+        <option value="Холодный">Холодный</option>
+        <option value="Тёплый">Тёплый</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="owner">Ответственный</label>
+      <select id="owner">
+        <option value="Лидоруб">Лидоруб</option>
+        <option value="МОП">МОП</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="stage">Этап сделки</label>
+      <select id="stage">
+        <option>Новый лид</option>
+        <option>Квалифицирован</option>
+        <option>Назначена консультация</option>
+        <option>Отказ</option>
+      </select>
+    </div>
+
+    <div class="switch-row">
+      <label for="tzRequested">Запрошено ТЗ</label>
+      <label class="switch">
+        <input type="checkbox" id="tzRequested">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <button type="submit" class="save-btn">Сохранить</button>
+    <div id="formMsg"></div>
+
+    <!-- Дополнительное задание, вариант 2: демонстрация отправки через API -->
+    <details class="api-demo">
+      <summary>Доп. задание: отправка лида через API (демо)</summary>
+      <pre id="apiDemoCode"></pre>
+    </details>
+  </form>
+
+  <div class="leads-panel">
+    <h2>Сохранённые лиды</h2>
+    <div id="leadsList">
+      <p class="empty-hint" id="emptyHint">Лидов пока нет — заполните форму слева.</p>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
