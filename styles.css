@@ -21,6 +21,10 @@ body {
 h1 { font-size: 22px; margin-bottom: 4px; }
 p.subtitle { color: var(--muted); margin-top: 0; margin-bottom: 20px; font-size: 14px; }
 
+
+
+
+
 .layout {
   display: grid;
   grid-template-columns: minmax(280px, 380px) 1fr;
@@ -33,12 +37,19 @@ p.subtitle { color: var(--muted); margin-top: 0; margin-bottom: 20px; font-size:
   .layout { grid-template-columns: 1fr; }
 }
 
+
+
+
+
 form.card, .leads-panel {
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 20px;
 }
+
+
+
 
 .field { margin-bottom: 14px; }
 .field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
